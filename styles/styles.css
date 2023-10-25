@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+    color: black;
+
+}
+
+.header {
+  background-color: pink;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  display: block;
+  padding: 20px;
+  text-align: center;
+
+}
+.container {
+  font-family: 'Roboto', sans-serif;
+  max-width: 1146px;
+  margin: 0 auto;
+  padding: 25px;
+  line-height: 200%;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+.poroschok{
+  line-height: 130%;
+  margin-left: 40px;
+}
+
+h3 {
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+}
+h2 {
+  font-weight: 300;
+}
+
+summary{
+  font-weight: 500;
+}
+.query_desc{
+  font-weight: 300;
+  margin-left: 40px;
+  }
+
+.query_desc__example{
+  font-weight: 300;
+  margin-left: 40px;
+  font-style: italic;
+  }
+
+.example{
+  font-weight: 300;
+  margin-left: 40px;
+  }
+
+.number{
+    margin-left: 0;
+
+}
+
+.example-container{
+    display: flex;
+}
+
+.metadata {
+  font-weight: 300;
+  margin-left: 55%;
+  font-style: italic;
+  line-height:140%;
+  }
+
+form{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#search {
+  display: block;
+  width: 70%;
+  /* padding: 12 6; */
+  padding: 0.375rem 0.75rem;
+  margin: 10px;
+  font-size: 16px;
+  height: 5vh;
+}
+
+.button {
+  display: block;
+  max-width: 600px;
+  /* padding: 12 6; */
+  padding: 0.375rem 0.75rem;
+  margin: 10px;
+  font-size: 16px;
+
+}
+footer {
+    background-color: #9a9a9a;
+}
+
+.footer-box {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer_text {
+    display: block;
+    color: aliceblue;
+    font-weight: 300;
+}
