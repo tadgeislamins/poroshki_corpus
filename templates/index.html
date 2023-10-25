@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- saved from url=(0104)https://www.pythonanywhere.com/user/NLPproject2023/files/home/NLPproject2023/mysite/templates/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Корпус порошков</title>
+    <link href="./index_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./index_files/styles.css">
+</head>
+<body cz-shortcut-listen="true">
+    <header class="header">
+        <h1>Корпус Порошков</h1>
+    </header>
+
+    <section>
+        <div class="container">
+            <h2>Добро пожаловать в корпус порошков!</h2>
+            <p class="query_desc">Корпус создан на основе паблика <a href="https://vk.com/sandalporoshki">Порошки</a></p>
+            <p class="query_desc">Размер корпуса составляет <b>14463</b> слов</p>
+            <details>
+                <summary> Что такое порошки?</summary>
+                <p class="query_desc">Порошки (a.k.a. стишки-порошки) — малый поэтический интернет-жанр. Порошок написан ямбом и состоит из четырех строк, в последней из которых должно быть только 2 слога. Рифмовка обязательна только между 2 и 4 строками. Используются только строчные буквы, знаки препинания и дефисы по большей части отсутствуют, орфография для целей художественного замысла автора может искажаться. Пример порошка: </p>
+                    <p class="poroschok">
+                    <br>
+                    <i>интеллигент интиллегенту
+                    <br>
+                    по роже дал розенталём
+                    <br>
+                    и попросил быть грамотнее
+                    <br>
+                    при ём
+                    <br>
+                    <br>
+                    — svirt</i></p>
+                    <br>
+                <p class="query_desc">Обозначения <i>feat</i> и <i>muzz</i> являются маркерами коллективного творчества: <i>feat</i> означает коллаборацию с тем, кто указан после этого слова, а <i>muzz</i> указывает на тех, кто вдохновил автора/ов порошка на его создание.</p>
+            </details>
+            <h3>Как можно сделать запрос?</h3>
+            <details>
+                <summary> Запрос по точной форме </summary>
+                <p class="query_desc">Чтобы найти тексты, в которых слово встречается в конкретной точной форме, введите нужную словоформу в двойных кавычках. Например:</p>
+                <p class="query_desc__example">"олега"</p>
+            </details>
+
+
+            <details>
+                <summary> Запрос по словоформе/лемме </summary>
+                    <p class="query_desc">Чтобы найти тексты, в которых слово встречается в любой форме, введите нужную лемму или любую словоформу этого слова без кавычек. Например:</p>
+                    <p class="query_desc__example">олег</p>
+            </details>
+
+           <details>
+            <summary>Запрос по части речи</summary>
+                <p class="query_desc">Чтобы найти тексты с определенной частью речи, введите условное обозначение нужной части речи (используйте обозначение <a href="https://pymorphy2.readthedocs.io/en/stable/user/grammemes.html">частей речи pymorphy2</a>). Например:</p>
+                <p class="query_desc__example">NOUN</p>
+
+           </details>
+
+            <details>
+                <summary> Запрос по словоформе и части речи </summary>
+                    <p class="query_desc">Чтобы найти тексты со словоформой определенной части речи, введите словоформу в двойных кавычках, знак + и условное обозначение нужной части речи. Например:</p>
+                    <p class="query_desc__example">"стали"+VERB</p>
+            </details>
+
+            <details>
+                <summary> Множественный запрос </summary>
+                    <p class="query_desc"> Чтобы найти тексты, в которых встречается последовательность токенов, введите обращения к токенам через пробел, используя любой из вариантов запроса. Поиск осуществляется только по токенам, следующим друг за другом именно в таком порядке и без дополнительных вставок между ними. Например:</p>
+                    <p class="query_desc__example">олег "орёт"+VERB</p>
+            </details>
+
+            <form action="https://www.pythonanywhere.com/res" method="get">
+                <input type="text" id="search" name="q" placeholder="Поиск" autofocus="">
+                <input type="submit" class="button" value="Найти">
+            </form>
+            <p>{{qq}} <i>{{q}}</i></p>
+            <p>{{res}}</p>
+            {% for example in data %}
+                {% if example[0] == 'Неверный запрос' %}
+                     <p class="example">{{example[0]}}</p>
+
+                {% elif example[0] == 'Ничего не нашлось :(' %}
+                     <p class="example">{{example[0]}}</p>
+
+                {% else %}
+                        <div class="example-container">
+                            <p class="number">{{example[4]}}.</p> <p class="example"> {{example[0] | safe}}</p>
+                        </div>
+                        <p class="metadata"><b>Дата публикации: </b>{{example[1]}}</p>
+                        <p class="metadata"><b>Автор(ы): </b>{{example[2]}}</p>
+                        <p class="metadata"><b>Год создания: </b>{{example[3]}}</p>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer-box">
+                <p class="footer_text"> Проект подготовлен студентами: <br>Таисия Тренихина, <br>Ярослав Соколов, <br>Арина Замышевская, <br>Анастасия Добрынина</p>
+                <p class="footer_text">Почты для связи: <br>tatrenikhina@edu.hse.ru, <br>yasokolov@edu.hse.ru, <br>aazamyshevskaya@edu.hse.ru, <br>aidobrunina_1@edu.hse.ru</p>
+                <p class="footer_text">НИУ ВШЭ, ФиКЛ, 2023</p>
+            </div>
+        </div>
+    </footer>
+
+</body></html>
